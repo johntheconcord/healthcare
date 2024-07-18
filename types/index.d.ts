@@ -9,7 +9,7 @@ declare type Gender = "male" | "female" | "other";
 declare type Status = "pending" | "scheduled" | "cancelled";
 
 declare interface CreateUserParams {
-  name: string;
+  name: string; 
   email: string;
   phone: string;
 }
