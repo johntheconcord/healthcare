@@ -11,11 +11,12 @@ export const UserFormValidation = z.object({
     .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
 });
 
+// You can adjust patient form validations here
 export const PatientFormValidation = z.object({
   name: z
     .string()
     .min(2, "Name must be at least 2 characters")
-    .max(50, "Name must be at most 50 characters"),
+    .max(100, "Name must be at most 100 characters"),
   email: z.string().email("Invalid email address"),
   phone: z
     .string()
