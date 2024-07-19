@@ -4,7 +4,10 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Doctors } from "@/constants";
 import { getAppointment } from "@/lib/actions/appointment.actions";
+import { getUser } from "@/lib/actions/patient.actions";
 import { formatDateTime } from "@/lib/utils";
+import { ID } from "node-appwrite";
+import { users } from "@/lib/appwrite.config";
 
 const RequestSuccess = async ({
   searchParams,
@@ -12,10 +15,13 @@ const RequestSuccess = async ({
 }: SearchParamProps) => {
   const appointmentId = (searchParams?.appointmentId as string) || "";
   const appointment = await getAppointment(appointmentId);
+  const user = await users.get(userId); 
 
   const doctor = Doctors.find(
     (doctor) => doctor.name === appointment.primaryPhysician
   );
+
+
 
   return (
     <div className=" flex h-screen max-h-screen px-[5%]">
@@ -39,7 +45,7 @@ const RequestSuccess = async ({
           />
           <h2 className="header mb-6 max-w-[600px] text-center">
             Your <span className="text-green-500">appointment request</span> has
-            been successfully submitted!
+            been successfully submitted. Nice, {user.name}!
           </h2>
           <p>We&apos;ll be in touch shortly to confirm.</p>
         </section>
