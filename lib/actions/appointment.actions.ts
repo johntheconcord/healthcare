@@ -141,7 +141,7 @@ export const updateAppointment = async ({
     return parseStringify(updatedAppointment);
   } catch (error) {
     console.error("An error occurred while scheduling an appointment:", error);
-  }
+  } 
 };
 
 // GET APPOINTMENT
