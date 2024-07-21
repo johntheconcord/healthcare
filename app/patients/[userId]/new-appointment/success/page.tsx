@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Doctors } from "@/constants";
 import { getAppointment } from "@/lib/actions/appointment.actions";
 import "@/lib/actions/patient.actions"; 
-import { formatDateTime } from "@/lib/utils";
 import { users } from "@/lib/appwrite.config";
+import { formatDateTime } from "@/lib/utils";
+
 
 
 const RequestSuccess = async ({
